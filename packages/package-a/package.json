@@ -1,0 +1,19 @@
+{
+  "name": "package-a",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MtBlue81/release-flow-sample.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MtBlue81/release-flow-sample/issues"
+  },
+  "homepage": "https://github.com/MtBlue81/release-flow-sample#readme"
+}
