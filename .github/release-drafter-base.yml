@@ -1,5 +1,4 @@
-name-template: $RESOLVED_VERSION
-tag-template: $RESOLVED_VERSION
+version-template: '$MAJOR.$MINOR'
 version-resolver:
   major:
     labels:
