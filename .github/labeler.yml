@@ -1,0 +1,4 @@
+package-a:
+  - packages/package-a/**/*
+package-b:
+  - packages/package-b/**/*
