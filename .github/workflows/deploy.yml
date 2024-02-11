@@ -6,11 +6,24 @@ on:
       - published
 
 jobs:
-  check:
+  staging-deploy:
     runs-on: ubuntu-latest
+    if: github.event.release.prerelease == true
 
     steps:
-    - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - name: Deploy to staging
+        run: git status 
+
+  production-deploy:
+    runs-on: ubuntu-latest
+    if: github.event.release.prerelease == false
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - name: Deploy to production
+        run: git status 
