@@ -1,0 +1,17 @@
+name: Poduction Deploy
+on:
+  release:
+    types: 
+      - released
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.event.release.prerelease == false
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - name: Deploy to staging
+        run: git status 
