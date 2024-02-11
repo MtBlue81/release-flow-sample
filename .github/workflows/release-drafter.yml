@@ -1,6 +1,10 @@
 name: Release Drafter
 
 on:
+  # release時の同期用
+  release:
+    types:
+      - edited
   push:
     branches:
       - main
