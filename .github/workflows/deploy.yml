@@ -2,10 +2,13 @@
 name: Deploy
 on:
   release:
-    types: 
-      - published
 
 jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log event
+        run: "echo Event: ${{ github.event.action }}"
   staging-deploy:
     runs-on: ubuntu-latest
     if: github.event.release.prerelease == true
