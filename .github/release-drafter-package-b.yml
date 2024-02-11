@@ -1,0 +1,5 @@
+_extends: release-flow-sample:.github/release-drafter-base.yml
+version-template: 'package-b-v$MAJOR.$MINOR'
+tag-prefix: package-b-
+include-paths:
+  - "packages/package-b/"
