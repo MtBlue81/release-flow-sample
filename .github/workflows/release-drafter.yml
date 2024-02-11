@@ -22,6 +22,7 @@ jobs:
       - uses: release-drafter/release-drafter@v5
         with:
             config-name: release-drafter-package-a.yml
+            commitish: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: release-drafter/release-drafter@v5
