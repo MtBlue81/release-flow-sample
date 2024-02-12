@@ -1,0 +1,37 @@
+name: hotfix
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'target tag'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  update_release_draft:
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.tag }}
+      - name: Create Hotfix branch
+        run: |
+          git branch hotfix/${{ inputs.tag }}
+          git push origin hotfix/${{ inputs.tag }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - uses: release-drafter/release-drafter@v5
+        with:
+            config-name: release-drafter-package-a.yml
+            commitish: "hotfix/${{ inputs.tag }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
